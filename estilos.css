@@ -32,7 +32,7 @@ img{
     justify-content: space-between;
 }
 .logo{
-    color: #f7efd8;
+    color: #03e045;
     font-size: 25px;
     font-weight: 800;
     text-transform: uppercase;
@@ -72,7 +72,7 @@ img{
     top: 100%;
     z-index: 1;
     background-color: #333128;
-    padding: 200px;
+    padding: 20px;
     min-width: 400px;
 }
 
@@ -118,6 +118,7 @@ p{
 .btn-1{
     display: inline-block;
     padding: 13px 25px;
+    color: white;
     border-radius: 25px;
     background-color: goldenrod;
     text-transform: capitalize;
@@ -161,7 +162,7 @@ h3{
 }
 .oferta-1{
     text-align: center;
-    flex-basis: calc(25% -20px);
+    flex-basis: calc(25% - 20px);
     box-shadow: 0 0 20px rgba(0, 0, 0,0.1);
     padding: 35px;
 }
@@ -280,7 +281,7 @@ input{
     justify-content: space-between;
 }
 .link h3{
-    color: white;
+    color: rgb(2, 85, 9);
     font-size: 17px;
     margin-bottom: 10px;
 }
@@ -291,5 +292,5 @@ input{
     margin-bottom: 10px;
 }
 .link a:hover{
-    color: white;
+    color: rgb(2, 49, 1);
 }
