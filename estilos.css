@@ -294,3 +294,75 @@ input{
 .link a:hover{
     color: rgb(2, 49, 1);
 }
+
+@media(max-width:991px){
+    .menu-container{
+        padding: 30px;
+    }
+    .menu label{
+        display: initial;
+    }
+    .menu-container .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #03e045;
+        display: none;
+    }
+    .menu-container .navbar ul li{
+        width: 100%;
+    }
+    .menu-container .navbar ul li a{
+        color: white;
+    }
+    .logo{
+        display: none;
+    }
+    #menu:checked ~ .navbar{
+        display: initial;
+    }
+    .submenu:hover #carrito{
+        min-width: 340px;
+    }
+    .header{
+        min-height: 0vh;
+        padding: 100px 30px;
+    }
+    .header-content{
+        flex-direction: column;
+        text-align: center;
+    }
+    .header-txt{
+        margin-bottom: 20px;
+    }
+    .header-img img{
+        width: 300px;
+    }
+    .informacion{
+        display: none;
+    }
+    .oferta{
+        padding: 30px;
+        flex-direction: column;
+    }
+    .oferta-1{
+        margin-bottom: 25px
+    }
+    .product{
+        padding: 30px;
+    }
+    .product-content{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .service{
+        flex-direction: column;
+    }
+    .footer{
+        padding: 30px;
+    }
+    .footer-content{
+        flex-direction: column;
+        text-align: center;
+    }
+}
