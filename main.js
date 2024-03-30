@@ -1,34 +1,35 @@
-const carrito = document.getElementById("carrito")
-const elemento1 = document.getElementById("lista-1")
-const lista = document.querySelector("#lista-carrito tbody")
-const vaciarCarritobtn = document.getElementById("vaciar-carrito")
+const carrito = document.getElementById("carrito");
+const elemento1 = document.getElementById("lista-1");
+const lista = document.querySelector("#lista-carrito tbody");
+const vaciarCarritobtn = document.getElementById("vaciar-carrito");
 
-cargarEventlisteners()
+cargarEventListeners();
 
-function cargarEventlisteners(){
-    elemento1.addEventListener("click", comprarElemento)
-    cargarEventlisteners("click", eliminarElemento)
-    vaciarCarritobtn.addEventListener("click",vaciarCarrito)
+function cargarEventListeners() {
+    elemento1.addEventListener("click", comprarElemento);
+    document.addEventListener("click", eliminarElemento); // Cambié esto de cargarEventlisteners a document
+    vaciarCarritobtn.addEventListener("click", vaciarCarrito);
 }
 
-function comprarElemento(e){
-    e.preventDeafault()
-    if(e.target.classList.contains("agregra-carrito")){
-        const elemento = e.target.parentElment.parentElment
-        leerDatosElemetos(elemento)
+function comprarElemento(e) {
+    e.preventDefault(); // Cambié preventDeafault a preventDefault
+    if (e.target.classList.contains("agregar-carrito")) { // Cambié agregra-carrito a agregar-carrito
+        const elemento = e.target.parentElement.parentElement;
+        leerDatosElementos(elemento);
     }
 }
 
-function leerDatosElemetos(elemento){
-    const infoElemnto = {
+function leerDatosElementos(elemento) {
+    const infoElemento = {
         imagen: elemento.querySelector("img").src,
-        titulo: elemento.querySelector("h3").textcontent,
+        titulo: elemento.querySelector("h3").textContent, // Cambié textcontent a textContent
         id: elemento.querySelector("a").getAttribute("data-id")
-    }
-    insetarCarrito(infoElemnto)
+    };
+    insertarCarrito(infoElemento);
 }
-function insetarCarrito(elemento){
-    const row = document.createElement("tr")
+
+function insertarCarrito(elemento) {
+    const row = document.createElement("tr");
     row.innerHTML = `
         <td>
             <img src="${elemento.imagen}" width=100>
@@ -37,31 +38,28 @@ function insetarCarrito(elemento){
             ${elemento.titulo}
         </td>
         <td>
-            ${elemento.precio}
+            ${elemento.precio} <!-- Asegúrate de tener un precio aquí -->
         </td>
         <td>
-            <a herf="#" class="borrar" data-id="${elemento.id}> x </a>
+            <a href="#" class="borrar" data-id="${elemento.id}"> x </a> <!-- Cambié herf a href -->
         </td>
-
-    `
-    lista.appendChild(row)
+    `;
+    lista.appendChild(row);
 }
 
-function eliminarElemento(e){
-    e.preventDeafault()
-    let elemento,
-        elementoId
-    if(e.target.classList.contains("borrar")){
-        e.target.parentElment.parentElment.remove()
-        elemento = e.target.parentElment.parentElment
-        elementoId = elemento.querySelector("a").getAttribute("data-id")
+function eliminarElemento(e) {
+    e.preventDefault(); // Cambié preventDeafault a preventDefault
+    let elemento, elementoId;
+    if (e.target.classList.contains("borrar")) {
+        e.target.parentElement.parentElement.remove();
+        elemento = e.target.parentElement.parentElement;
+        elementoId = elemento.querySelector("a").getAttribute("data-id");
     }
-
 }
 
-function vaciarCarrito(){
-    while(lista.firstChild){
-        lista.removeChild(lista.firstChild)
+function vaciarCarrito() {
+    while (lista.firstChild) {
+        lista.removeChild(lista.firstChild);
     }
-    return false
+    return false;
 }
